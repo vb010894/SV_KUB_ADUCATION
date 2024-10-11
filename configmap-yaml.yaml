@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: first-config-map
+data:
+  config.yaml: |
+    test: "test"
+    testInt: 42

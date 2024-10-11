@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: first-cron-job
+spec:
+  schedule: "1 * * * *"
+  successfulJobsHistoryLimit: 10
+  failedJobsHistoryLimit: 5
+  startingDeadlineSeconds: 2
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          name: hello-cron-job
+        spec:
+          containers:
+            - name: hello-cron-job
+              image: busybox
+              command: [ "echo", "Hello-my-first-cron-job" ]
+          restartPolicy: OnFailure
+
